@@ -1,0 +1,7 @@
+{
+  "name": "simple-todo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

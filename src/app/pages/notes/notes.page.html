@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="backToProjects()">
+        <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notizen</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="addTodo($event)">
+    <ion-refresher-content pullingIcon="" pullingText="Pull to add" refreshingSpinner="" refreshingText=" ">
+    </ion-refresher-content>
+
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngIf="(todos | async)?.length==0">
+      <ion-label>Zieh mich runter zum hinzufügen</ion-label>
+    </ion-item>
+    <ion-item-sliding *ngFor="let todo of todos | async">
+      <ion-item-options *ngIf="!todo.archived; else archivedBlock" side="start" (ionSwipe)="todoChangeState(todo)">
+        <ion-item-option color="success" >Fertig</ion-item-option>
+      </ion-item-options>
+      <ng-template #archivedBlock ><ion-item-options side="start" (ionSwipe)="todoChangeState(todo)">
+        <ion-item-option color="primary" >Reaktivieren</ion-item-option>
+      </ion-item-options></ng-template>
+      <ion-item  [ngClass]="{'archived': todo.archived}">
+        <ion-label>{{todo.content}} </ion-label>
+        <ion-label *ngIf="todo.date !== ''">{{todo.date.toDate() | date:"d-M-y hh:mm:ss"}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end" *ngIf="todo.archived === true">
+        <ion-item-option color="danger" (click)="todoDelete(todo)">Löschen</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

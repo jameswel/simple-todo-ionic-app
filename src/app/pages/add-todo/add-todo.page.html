@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="todoForm">
+    <ion-item>
+      <ion-textarea formControlName="content" placeholder="Ich will.." inputmode="text" autofocus="true"
+        (focusout)="save(value)" enterkeyhint="done" autoGrow="true" clearInput="true">
+      </ion-textarea>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-datetime formControlName="date" displayFormat="D MMM YYYY H:mm" min="2020" value="2005-06-17T11:06Z">
+      </ion-datetime>
+    </ion-item> -->
+  </form>
+</ion-content>
