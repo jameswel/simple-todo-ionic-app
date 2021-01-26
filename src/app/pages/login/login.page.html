@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Einloggen</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -23,6 +23,8 @@
       <span *ngIf="password.errors?.minlength">Dein Password muss mindestens 6 Zeichen haben</span>
     </div>
   </form>
+  <br>
   <ion-button (click)="signUp()" expand="full">Sign Up</ion-button>
+  <br>
   <ion-button (click)="signIn()" expand="full" color="secondary">Sign In</ion-button>
 </ion-content>

@@ -25,7 +25,7 @@
       <ng-template #archivedBlock ><ion-item-options side="start" (ionSwipe)="todoChangeState(todo)">
         <ion-item-option color="primary" >Reaktivieren</ion-item-option>
       </ion-item-options></ng-template>
-      <ion-item  [ngClass]="{'archived': todo.archived}">
+      <ion-item  [ngClass]="{'archived': todo.archived}" class="item" lines="none">
         <ion-label>{{todo.content}} </ion-label>
         <ion-label *ngIf="todo.date !== ''">{{todo.date.toDate() | date:"d-M-y hh:mm:ss"}}</ion-label>
       </ion-item>

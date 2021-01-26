@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
     }, async err => {
       loading.dismiss();
       const alert = await this.alertController.create({
-        header: 'Sign up failed',
+        header: 'Die Registrierung ist fehlgeschlagen',
         message: err.message,
         buttons: ['OK'],
       });
@@ -55,7 +55,7 @@ export class LoginPage implements OnInit {
     }, async (err) => {
       loading.dismiss();
       const alert = await this.alertController.create({
-        header: 'Login failed',
+        header: 'Beim Einloggen ist ein Fehler aufgetreten',
         message: err.message,
         buttons: ['OK'],
       });
